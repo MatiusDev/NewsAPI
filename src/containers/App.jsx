@@ -21,7 +21,6 @@ class App extends Component {
             this.setState({ news });
         } catch (error) {
             console.error(error);
-            console.log(this.state);
         }
     };
 
