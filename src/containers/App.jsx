@@ -11,12 +11,16 @@ class App extends Component {
     }
 
     getNews = async (category = 'general') => {
-        const APIKey = '0e9950bfc8a64ecb82e4c55ce93294be';
-        const URL = `http://newsapi.org/v2/top-headlines?country=co&category=${category}&apiKey=${APIKey}`;
+        try {
+            const APIKey = '0e9950bfc8a64ecb82e4c55ce93294be';
+            const URL = `http://newsapi.org/v2/top-headlines?country=co&category=${category}&apiKey=${APIKey}`;
 
-        const response = await fetch(URL);
-        const { articles: news } = await response.json();
-        this.setState({ news });
+            const response = await fetch(URL);
+            const { articles: news } = await response.json();
+            this.setState({ news });
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     render() {
