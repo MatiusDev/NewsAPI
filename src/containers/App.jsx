@@ -17,7 +17,7 @@ class App extends Component {
 
             const response = await fetch(URL);
             const { articles: news } = await response.json();
-            console.log('here after req', news);
+            news = news || [];
             this.setState({ news });
         } catch (error) {
             console.error(error);
